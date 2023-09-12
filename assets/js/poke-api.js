@@ -6,6 +6,15 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     pokemon.number = pokeDetail.id
     pokemon.name = pokeDetail.name
 
+    pokemon.height = pokeDetail.height
+
+    pokeDetail.stats.forEach(stat => {
+      if (stat.stat.name == "hp") pokemon.hp = stat.base_stat
+      if (stat.stat.name == "attack") pokemon.attack = stat.base_stat
+      if (stat.stat.name == "defense") pokemon.defense = stat.base_stat
+      if (stat.stat.name == "speed") pokemon.speed = stat.base_stat
+    });
+
     pokemon.abilities = pokeDetail.abilities.map(el => el.ability.name)
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)

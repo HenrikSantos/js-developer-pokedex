@@ -18,7 +18,16 @@ function convertPokemonToLi(pokemon) {
 
             <img src="${pokemon.photo}" alt="${pokemon.name}" />
           </div>
-          <h1 class="text-white text-sm">Habilidades:</h1>
+
+          <h1 class="text-white text-sm">Stats:</h1>
+          <div class="stats mb-3 text-xs text-white font-medium">
+            <p>Health: ${pokemon.hp}</p>
+            <p>Defense: ${pokemon.defense}</p>
+            <p>Speed: ${pokemon.speed}</p>
+            <p>Height: ${pokemon.height}m</p>
+          </div>
+
+          <h1 class="text-white text-sm">Skills:</h1>
           <ul class="abilities">
             ${pokemon.abilities.map((abilities) => `<li class="ability mt-2 ${pokemon.types[0]}">${abilities}</li>`).join('')}
           </ul>
